@@ -1,9 +1,7 @@
 import {get} from '$utils/requestHandler'
 
-function getCandidates () {
+export function getCandidates () {
   return get({
     url: '/candidates',
   })
 }
-
-export default getCandidates

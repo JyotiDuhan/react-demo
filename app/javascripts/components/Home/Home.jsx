@@ -1,13 +1,11 @@
 import React from 'react'
 import { Candidates } from '$components'
 
-const Home = function (props) {
-  const candidates = props.candidates
-
+const Home = function ({data, candidates}) {
   const candidatesInfo = candidates.map((candidate) => (
     <Candidates
-        data={candidate}
-        key={candidate.uid} />
+      data={data[candidate]}
+      key={candidate} />
   ))
 
   return (
@@ -16,9 +14,6 @@ const Home = function (props) {
     </div>
   )
 }
-// const Home = (props) => (
-//   <div>{'Home'}</div>
-// )
 
 Home.propTypes = {
 
