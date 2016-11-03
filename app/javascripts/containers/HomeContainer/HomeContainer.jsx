@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as candidatesActionCreators from '$redux/candidates'
 import * as byLocationActionCreators from '$redux/byLocation'
+import * as byCompanyActionCreators from '$redux/byCompany'
 
 class HomeContainer extends Component {
   constructor (props) {
@@ -20,13 +21,14 @@ class HomeContainer extends Component {
       .fetchAndHandleCandidates()
       .then((data) => {
         props.getCandidatesByLocation(data)
+        props.getCandidatesByCompany(data)
       })
   }
 
   render () {
     const props = this.props
 
-    console.log("I am from render method!")
+    console.log('I am from render method!')
     if (props.candidates.isFetching) {
       return (
         <div>{'Loading...'}</div>
@@ -36,8 +38,7 @@ class HomeContainer extends Component {
     return (
       <Home
         candidates={props.allCandidates}
-        data={props.candidates.data}
-      />
+        data={props.candidates.data} />
     )
   }
 }
@@ -45,12 +46,12 @@ class HomeContainer extends Component {
 const mapStateToProps = ({ candidates, allCandidates }) => {
   return {
     candidates,
-    allCandidates
+    allCandidates,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({...candidatesActionCreators, ...byLocationActionCreators}, dispatch)
+  return bindActionCreators({...candidatesActionCreators, ...byLocationActionCreators, ...byCompanyActionCreators}, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
