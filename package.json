@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dashboard": "webpack-dashboard -t Assignment -- webpack-dev-server --config ./webpack.config.babel.js  --quiet --no-info",
-    "production": "webpack -p",
+    "production": "webpack -p"
   },
   "keywords": [],
   "author": "",
