@@ -1,8 +1,11 @@
 import path               from 'path'
+import precss             from 'precss'
 import webpack            from 'webpack'
+import autoprefixer       from 'autoprefixer'
 import HtmlWebpackPlugin  from 'html-webpack-plugin'
 import webpackLoadPlugins from 'webpack-load-plugins'
 import DashboardPlugin    from 'webpack-dashboard/plugin'
+import ExtractTextPlugin  from 'extract-text-webpack-plugin'
 
 const PATHS = {
 	app        : path.join(__dirname, 'app'),
@@ -19,6 +22,7 @@ const PATHS = {
 
 const target                  = 'http://104.199.147.85'
 const dashBoardPlugin         = new DashboardPlugin()
+let extractTextPluginConfig  = new ExtractTextPlugin("style.css", { allChunks : false })
 const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 	template : PATHS.app + '/index.html',
 	filename : 'index.html',
@@ -47,8 +51,15 @@ const base = {
 				test    : /\.jsx$|\.js$/,
 				exclude : /node_modules/,
 				loader  : "babel-loader"
-			}
+			},
+			{
+				test   : /\.(scss|css)$/,
+				loader : ExtractTextPlugin.extract("style","css?localIdentName=[name]__[local]___[hash : base64 : 5]&modules&importLoaders=1!postcss-loader!sass?outputStyle=expanded")
+			},
 		]
+	},
+	postcss: function () {
+		return [autoprefixer, precss]
 	},
 	resolve: {
 		root: path.resolve('./app'),
@@ -67,7 +78,7 @@ const base = {
 	}
 }
 
-const commonPlugins = [HTMLWebpackPluginConfig, dashBoardPlugin]
+const commonPlugins = [HTMLWebpackPluginConfig, dashBoardPlugin, extractTextPluginConfig,]
 const devConf = {
 	devtool   : 'cheap-module-inline-source-map',
 	devServer : {

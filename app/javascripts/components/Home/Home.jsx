@@ -1,22 +1,23 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 import { Candidates } from '$components'
 
-const Home = function ({data, candidates}) {
-  const candidatesInfo = candidates.map((candidate) => (
-    <Candidates
-      data={data[candidate]}
-      key={candidate} />
-  ))
+const candidatesInfo = (data, candidates) => candidates.map((candidate) => (
+  <Candidates
+    data={data[candidate]}
+    key={candidate} />
+))
 
+const Home = function ({data, candidates}) {
   return (
-    <div>
-      {candidatesInfo}
+    <div className='content'>
+      {candidatesInfo(data, candidates)}
     </div>
   )
 }
 
 Home.propTypes = {
-
+  data: PropTypes.object,
+  candidates: PropTypes.array.isRequired,
 }
 
 export default Home

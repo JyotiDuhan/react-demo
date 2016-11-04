@@ -1,0 +1,128 @@
+@import "./_variables";
+
+:global{
+	.padded-1{
+		padding: $xs $xs * 3;
+	}
+
+	.padded-2{
+		padding: $xs * 2 $xs * 3;
+	}
+
+	.inline-block{
+		display: inline-block;
+	}
+
+	.mainhead{
+		font-size: $xl;
+	}
+
+	.sub-head-1{
+		font-size: $l;
+	}
+
+	.sub-head-2{
+		font-size: $mm;
+	}
+
+	.left{
+		float: left;
+	}
+
+	.right{
+		float: right;
+	}
+
+	.t-center{
+		text-align: center;
+	}
+
+	.t-right{
+		text-align: right;
+	}
+
+	.capitals{
+		text-transform: uppercase;
+	}
+
+	.camels{
+		text-transform: capitalize;
+	}
+
+	.first-caps:first-letter{
+		text-transform: capitalize;
+	}
+
+	.light{
+		font-weight: $font-light;
+	}
+
+	.xsmall{
+		font-size: $xs;
+	}
+
+	.smalls{
+		font-size: $s;
+	}
+
+	.medium{
+		font-size: $m;
+	}
+
+	.bigger{
+		font-size: $l;
+	}
+
+	.spaced{
+		letter-spacing: 3px;
+	}
+
+	.center-block{
+		margin: 0 auto;
+		display: block;
+	}
+
+	.content{
+		font-size: $xl;
+		margin-top: $xs;
+		position: relative;
+
+		@extend .u-md-4-5;
+		@extend .center-block;
+	}
+
+	.card{
+		background-color: $light;
+		overflow: hidden;
+		position: relative;
+		margin-top: $xs;
+	}
+
+	.padded{
+		padding: $mm;
+	}
+
+	.spadded{
+		padding: $xs;
+	}
+
+	.faded{
+		color: $faded;
+	}
+
+	.active{
+		color: $theme;
+		cursor: pointer;
+	}
+
+	.h-separator{
+		padding: 0 5px;
+	}
+
+	.v-separator{
+		margin-top: $xs;
+	}
+	.circular{
+		border-radius: 50%;
+	}
+}

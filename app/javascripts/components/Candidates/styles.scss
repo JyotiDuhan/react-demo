@@ -1,3 +1,23 @@
-.candidates-card{
-	border: 1px solid red;
+@import "../../../styles/scss/base/_variables";
+
+.image{
+	border: 1px solid $disabled;
+	height: 70px;
+	width: 70px;
+	overflow: hidden;
+
+	img{
+		width: 100%;
+		height: auto;
+	}
+}
+
+.candidateDetails{
+	display: inline-block;
+	width: calc(100% - 90px);
+	float: right;
+
+	.faded{
+		font-size: inherit;
+	}
 }

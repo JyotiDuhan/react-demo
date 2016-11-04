@@ -7,13 +7,6 @@ import * as byLocationActionCreators from '$redux/byLocation'
 import * as byCompanyActionCreators from '$redux/byCompany'
 
 class HomeContainer extends Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      candidates: [],
-    }
-  }
   componentDidMount () {
     const props = this.props
 
@@ -28,7 +21,6 @@ class HomeContainer extends Component {
   render () {
     const props = this.props
 
-    console.log('I am from render method!')
     if (props.candidates.isFetching) {
       return (
         <div>{'Loading...'}</div>
@@ -43,10 +35,10 @@ class HomeContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ candidates, allCandidates }) => {
+const mapStateToProps = ({ candidates, filters }) => {
   return {
     candidates,
-    allCandidates,
+    allCandidates : filters.candidates,
   }
 }
 

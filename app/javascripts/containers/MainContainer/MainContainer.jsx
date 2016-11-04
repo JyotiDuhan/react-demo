@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
-import { Header } from '$components'
+import { HeaderContainer } from '$containers'
+import * as stylesIgnored from './styles.scss'
 
 class MainContainer extends Component {
   propTypes : {
@@ -9,7 +10,7 @@ class MainContainer extends Component {
   render () {
     return (
       <div>
-        <Header />
+        <HeaderContainer />
         {this.props.children}
       </div>
     )

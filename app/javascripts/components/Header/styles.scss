@@ -1,0 +1,18 @@
+@import "../../../styles/scss/base/_variables";
+
+.header{
+  font-size: 15px;
+  background-color: $light;
+}
+
+.filterCount{
+  display: inline-block;
+  margin-left: 5px;
+  vertical-align: bottom;
+  font-size: 1.1em;
+  line-height: 2;
+}
+
+.addFilters{
+	font-size: $xs;
+}

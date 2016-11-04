@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dashboard": "webpack-dashboard -t Assignment -- webpack-dev-server --config ./webpack.config.babel.js  --quiet --no-info"
+    "dashboard": "webpack-dashboard -t Assignment -- webpack-dev-server --config ./webpack.config.babel.js  --quiet --no-info",
+    "production": "webpack -p",
   },
   "keywords": [],
   "author": "",
@@ -36,6 +37,10 @@
     "eslint-plugin-react": "^6.4.1",
     "eslint-plugin-standard": "^2.0.1",
     "html-webpack-plugin": "^2.24.1",
+    "node-sass": "^3.11.1",
+    "postcss-loader": "^1.1.0",
+    "precss": "^1.4.0",
+    "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "webpack-dashboard": "^0.2.0",
