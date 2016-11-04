@@ -13,7 +13,6 @@ function fetchingCandidates () {
   }
 }
 
-
 /**
  * If there is any error while making the API call
  * @param  {Error} error  Error object
@@ -38,7 +37,7 @@ function fetchingCandidatesSuccess ({formattedCandidates, allCompanies, allCitie
     type: 'FETCHING_CANDIDATES_SUCCESS',
     candidates: formattedCandidates,
     allCompanies,
-    allCities
+    allCities,
   }
 }
 
@@ -101,8 +100,8 @@ export default function candidates (state = initialCandidateState, action) {
         isFetching: false,
         error: '',
         data: action.candidates,
-        allCompanies : action.allCompanies,
-        allCities : action.allCities,
+        allCompanies: action.allCompanies,
+        allCities: action.allCities,
       }
     default:
       return state

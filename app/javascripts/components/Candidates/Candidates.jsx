@@ -26,8 +26,4 @@ const Candidates = function ({ data }) {
   )
 }
 
-Candidates.propTypes = {
-
-}
-
 export default Candidates

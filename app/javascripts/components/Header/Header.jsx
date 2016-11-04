@@ -25,8 +25,4 @@ const Header = ({handleClick, showFilter, allCompanies, allCities, onCompanyChan
   </header>
 )
 
-Header.propTypes = {
-
-}
-
 export default Header

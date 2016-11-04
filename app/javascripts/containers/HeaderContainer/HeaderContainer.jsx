@@ -1,21 +1,13 @@
-import React, { Component, PropTypesIgnored } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as filterActionCreators from '$redux/filters'
 import { Header } from '$components'
 
 class HeaderContainer extends Component {
-  handleCompanyChange = (e) => {
-    const props = this.props
+  handleCompanyChange = (e) => this.props.applyFilterByCompanyThunk(e.target.value)
 
-    this.props.applyFilterByCompanyThunk (e.target.value)
-  }
-
-  handleCityChange = (e) => {
-    const props = this.props
-
-    this.props.applyFilterByLocationThunk (e.target.value)
-  }
+  handleCityChange = (e) => this.props.applyFilterByLocationThunk(e.target.value)
 
   render () {
     const props = this.props
