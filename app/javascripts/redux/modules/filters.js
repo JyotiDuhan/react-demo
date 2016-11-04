@@ -11,7 +11,6 @@ export function applyFilterByCompanyThunk (filterValue) {
   }
 }
 
-
 /**
  * Thunk for location
  * @param  {String} filterValue Value selected in Locatoin dropdown
@@ -41,7 +40,6 @@ export function applyFilterByCompany (state, filterValue) {
   }
 }
 
-
 /**
  * Actoin creator to apply location filter
  * @param  {Object} state        Store's state reference
@@ -70,7 +68,6 @@ export function resetFilters (candidates) {
   }
 }
 
-
 // Show hide the filters
 export function showHideFilters () {
   return {
@@ -78,19 +75,18 @@ export function showHideFilters () {
   }
 }
 
-
 // Sub reducer of `filters` reducer(this can be optimized a little)
 const applyFilter = (action, currentFilter, state) => {
-  const {candidatesByLocation, candidatesByCompany, type, filterValue, allCandidates } = action
+  const {candidatesByLocation, candidatesByCompany, type, filterValue, allCandidates} = action
 
-  switch (action.type) {
+  switch (type) {
     case 'APPLY_FILTER_BY_LOCATION':
       if (currentFilter.length > 1) {
         return candidatesByCompany[state.company].filter((candidate) => candidatesByLocation[filterValue].indexOf(candidate) > -1)
       } else {
-        if(filterValue !== ''){
+        if (filterValue !== '') {
           return candidatesByLocation[filterValue]
-        } else if ( currentFilter.length === 1 && filterValue === '') {
+        } else if (currentFilter.length === 1 && filterValue === '') {
           return candidatesByCompany[state.company]
         }
 
@@ -100,9 +96,9 @@ const applyFilter = (action, currentFilter, state) => {
       if (currentFilter.length > 1) {
         return candidatesByLocation[state.location].filter((candidate) => candidatesByCompany[filterValue].indexOf(candidate) > -1)
       } else {
-        if(filterValue !== ''){
+        if (filterValue !== '') {
           return candidatesByCompany[filterValue]
-        } else if(currentFilter.length === 1 && filterValue === '') {
+        } else if (currentFilter.length === 1 && filterValue === '') {
           return candidatesByLocation[state.location]
         }
 
@@ -110,7 +106,6 @@ const applyFilter = (action, currentFilter, state) => {
       }
   }
 }
-
 
 // Reducer to track all the filters
 const initialState = {
@@ -124,7 +119,7 @@ export default function filters (state = initialState, action) {
 
   switch (action.type) {
     case 'APPLY_FILTER_BY_COMPANY':
-      if(action.filterValue.length > 0){
+      if (action.filterValue.length > 0) {
         currentFilter = state.currentFilter.indexOf('byCompany') > -1 ? state.currentFilter : state.currentFilter.concat('byCompany')
       } else {
         const index = state.currentFilter.indexOf('byCompany')
@@ -141,7 +136,7 @@ export default function filters (state = initialState, action) {
         candidates: applyFilter(action, currentFilter, state),
       }
     case 'APPLY_FILTER_BY_LOCATION':
-      if(action.filterValue.length > 0){
+      if (action.filterValue.length > 0) {
         currentFilter = state.currentFilter.indexOf('byLocation') > -1 ? state.currentFilter : state.currentFilter.concat('byLocation')
       } else {
         const index = state.currentFilter.indexOf('byLocation')

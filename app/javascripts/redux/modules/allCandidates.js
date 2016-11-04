@@ -10,7 +10,6 @@ export function getAllCandidates (candidates) {
   }
 }
 
-
 /**
  * Reducer to create an array of all the candidtes
  * @param  {Array}  state   List of Candidates

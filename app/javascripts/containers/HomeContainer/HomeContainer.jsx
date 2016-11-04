@@ -38,7 +38,7 @@ class HomeContainer extends Component {
 const mapStateToProps = ({ candidates, filters }) => {
   return {
     candidates,
-    allCandidates : filters.candidates,
+    allCandidates: filters.candidates,
   }
 }
 

@@ -12,7 +12,6 @@ export function getCandidatesByCompany (candidates) {
   }
 }
 
-
 /**
  * Reducer to group candidates by company name
  * @param  {Object} state  Map of formatted candidates

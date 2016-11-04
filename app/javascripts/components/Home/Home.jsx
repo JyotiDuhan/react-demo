@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import { Candidates } from '$components'
 
 const candidatesInfo = (data, candidates) => candidates.map((candidate) => (
@@ -13,11 +13,6 @@ const Home = function ({data, candidates}) {
       {candidatesInfo(data, candidates)}
     </div>
   )
-}
-
-Home.propTypes = {
-  data: PropTypes.object,
-  candidates: PropTypes.array.isRequired,
 }
 
 export default Home

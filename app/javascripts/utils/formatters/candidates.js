@@ -11,7 +11,7 @@ function detectPhrase (count, phrase) {
 export const formatCandidates = (candidates) => {
   const allCompanies = {}
   const allCities = {}
-  const formattedCandidates =  candidates.reduce((prev, curr) => {
+  const formattedCandidates = candidates.reduce((prev, curr) => {
     const experienceMonths = curr.total_experience % 12
     const experienceYears = parseInt(curr.total_experience / 12, 10)
     const monthPhrase = detectPhrase(experienceMonths, 'month')

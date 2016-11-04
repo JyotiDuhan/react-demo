@@ -12,7 +12,6 @@ export function getCandidatesByLocation (candidates) {
   }
 }
 
-
 /**
  * Reducer to group candidates by location
  * @param  {Object} state  Map of formatted candidates
